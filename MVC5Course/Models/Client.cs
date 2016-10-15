@@ -41,6 +41,7 @@ namespace MVC5Course.Models
         public string Gender { get; set; }
         [DisplayName("生日")]
         [DisplayFormat(DataFormatString= "{0: yyyy/MM/dd}",ApplyFormatInEditMode =true)]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         [DisplayName("信用評等")]
         [Range(0,9,ErrorMessage ="信用評等必需介於0~9")]
