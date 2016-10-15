@@ -15,10 +15,15 @@ namespace MVC5Course.Controllers
         private FabricsEntities db = new FabricsEntities();
 
         // GET: Clients
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
             var client = db.Client.Include(c => c.Occupation);
-            return View(client.Take(10).ToList());
+            if (!string.IsNullOrEmpty(search))
+            {
+                client =  client.Where(x => x.FirstName.Contains(search));
+            }
+            client = client.OrderByDescending(x => x.FirstName).Take(10);
+            return View(client);
         }
 
         // GET: Clients/Details/5
