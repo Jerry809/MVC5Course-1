@@ -118,5 +118,11 @@ namespace MVC5Course.Controllers
 
             return View(data);
         }
+
+        public ActionResult ClientContribution3(string id = "Mary")
+        {
+            var data = db.usp_GetClientContribution(id);
+            return View(data);
+        }
     }
 }
