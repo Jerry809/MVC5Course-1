@@ -1,4 +1,5 @@
 ﻿using MVC5Course.Models;
+using MVC5Course.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -83,9 +84,38 @@ namespace MVC5Course.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Update20Percent2()
+        {
+            var str = "%white%";
+            var data = db.Database.ExecuteSqlCommand(
+                @"UPDATE dbo.Product 
+                  SET    Price = Price * 1.2 
+                  WHERE  ProductName LIKE @p0 ", str);
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult ClientContribution()
         {
             var data = db.vw_ClientContribution.Take(20);
+            return View(data);
+        }
+
+        public ActionResult ClientContribution2(string id = "Mary")
+        {
+            var data = db.Database.SqlQuery<ClientContributionViewModel>(
+                @"SELECT
+		            c.ClientId,
+		            c.FirstName,
+		            c.LastName,
+		            (SELECT SUM(o.OrderTotal) 
+		             FROM [dbo].[Order] o 
+		             WHERE o.ClientId = c.ClientId) as OrderTotal
+	              FROM 
+		            [dbo].[Client] as c
+                  WHERE
+                    c.FirstName LIKE @p0", "%" + id + "%");
+
             return View(data);
         }
     }

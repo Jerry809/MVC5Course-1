@@ -8,8 +8,18 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+</p>
+<p>
     @Html.ActionLink("售價加20%", "Update20Percent")
-
+</p>
+<p>
+    @Html.ActionLink("售價加20%-直接下SQL", "Update20Percent2")
+</p>
+<p>
+    @Html.ActionLink("查詢ClientContribution資料", "ClientContribution")
+</p>
+<p>
+    @Html.ActionLink("查詢ClientContribution2資料", "ClientContribution2")
 </p>
 <table class="table">
     <tr>
@@ -28,27 +38,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-            @Html.ActionLink("加個驚嘆號","Update", new { id= item.ProductId})
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stock)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+                @Html.ActionLink("加個驚嘆號", "Update", new { id = item.ProductId })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
 
 </table>
