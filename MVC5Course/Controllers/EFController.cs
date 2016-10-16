@@ -36,7 +36,7 @@ namespace MVC5Course.Controllers
         public ActionResult Delete(int id)
         {
             var product = db.Product.Find(id);
-            product.IsDeleted = 1;
+            product.IsDeleted = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -76,7 +76,7 @@ namespace MVC5Course.Controllers
             {
                 if (item.Price.HasValue)
                 {
-                    item.Price = item.Price.Value * 1.2m;
+                    item.Price = item.Price * 1.2m;
                 }
             }
             db.SaveChanges();
