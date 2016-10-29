@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MVC5Course.Models.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<h2>ProductList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm("BatchUpdate", "MV"))
+{
+<input type="submit" value="批次更新" />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @{
+        var items = Model.ToArray();
+    }
+
+    @for (int i = 0; i < items.Length; i++)   
+    {
+        @Html.HiddenFor(modelItem => items[i].ProductId);
+        <tr>
+            <td>
+                @Html.EditorFor(modelItem => items[i].ProductName)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => items[i].Price)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => items[i].Active)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => items[i].Stock)
+            </td>
+         </tr>
+    }
+
+</table>
+        }
+
+
