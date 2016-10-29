@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Created";
+}
+
+<h2>Created</h2>
+
+@using MVC5Course.Models.ViewModels
+@{
+    var m = TempData["FormModel"] as ClientLoginViewModel;
+    if (m != null)
+    {
+        <h2>@m.FirstName @m.LastName  Add Success</h2>
+    }
+}
+

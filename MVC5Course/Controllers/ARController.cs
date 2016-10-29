@@ -6,8 +6,9 @@ using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
-    public class ARController : Controller
+    public class ARController : BaseController
     {
+        
         // GET: AR
         public ActionResult Index()
         {
@@ -29,6 +30,13 @@ namespace MVC5Course.Controllers
         {
             var filePath = Server.MapPath("~/Content/PPAP.jpg");
             return File(filePath, "image/jpeg","PPAP.jpg");
+        }
+
+        public ActionResult JsonTest()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+            var data = db.Client.Take(10).ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
     }
 }

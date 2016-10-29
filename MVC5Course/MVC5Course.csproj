@@ -180,6 +180,7 @@
     <Compile Include="Controllers\EFController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MVController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\Test1Controller.cs" />
     <Compile Include="Global.asax.cs">
@@ -394,6 +395,9 @@
     <Content Include="Views\EF\ClientContribution2.cshtml" />
     <Content Include="Views\EF\ClientContribution3.cshtml" />
     <Content Include="Views\AR\Index.cshtml" />
+    <Content Include="Views\MV\Index.cshtml" />
+    <Content Include="Views\MV\Create.cshtml" />
+    <Content Include="Views\MV\Created.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
