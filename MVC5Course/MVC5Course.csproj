@@ -167,6 +167,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ARController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -391,6 +392,7 @@
     <Content Include="Views\EF\ClientContribution.cshtml" />
     <Content Include="Views\EF\ClientContribution2.cshtml" />
     <Content Include="Views\EF\ClientContribution3.cshtml" />
+    <Content Include="Views\AR\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
