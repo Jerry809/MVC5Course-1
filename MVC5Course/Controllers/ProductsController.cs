@@ -19,7 +19,9 @@ namespace MVC5Course.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            var data = repo.All().OrderByDescending(p => p.ProductId).Take(10).ToList();
+            //var data = db.Product.OrderByDescending(p => p.ProductId).Take(10).ToList()
+            //var data = repo.All().OrderByDescending(p => p.ProductId).Take(10).ToList();
+            var data = repo.Get所有資料_依據ProductId排序(10).ToList();
             return View(data);
             //return View(db.Product.OrderByDescending(p => p.ProductId).Take(10).ToList());
         }
@@ -115,6 +117,7 @@ namespace MVC5Course.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = repo.Find(id);
+            repo.Delete(product);
             repo.UnitOfWork.Commit();
             return RedirectToAction("Index");
         }
