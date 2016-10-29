@@ -9,11 +9,11 @@ namespace MVC5Course.Controllers
 {
     public class MVController : BaseController
     {
+        [LocalRequestOnly]
+        [ShareViewBagData]
         // GET: MV
         public ActionResult Index()
         {
-            ViewData["Temp1"] = "暫存資料 Temp1";
-
             var b = new ClientLoginViewModel()
             {
                 FirstName = "Jerry",

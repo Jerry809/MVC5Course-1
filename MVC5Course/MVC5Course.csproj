@@ -179,9 +179,11 @@
     <Compile Include="Controllers\ClientsController.cs" />
     <Compile Include="Controllers\EFController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="ActionFilters\LocalRequestOnlyAttribute.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MVController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="ActionFilters\ShareViewBagDataAttribute.cs" />
     <Compile Include="Controllers\Test1Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
