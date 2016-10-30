@@ -185,6 +185,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="ActionFilters\ShareViewBagDataAttribute.cs" />
     <Compile Include="Controllers\Test1Controller.cs" />
+    <Compile Include="Controllers\VTController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -403,6 +404,7 @@
     <Content Include="Views\MV\Created.cshtml" />
     <Content Include="Views\MV\ProductList.cshtml" />
     <Content Include="Views\Shared\Error_DbEntityValidationException.cshtml" />
+    <Content Include="Views\VT\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
