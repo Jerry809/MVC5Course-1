@@ -15,7 +15,7 @@ namespace MVC5Course.Controllers
     {
 
         // GET: Clients
-        public ActionResult Index(string search)
+        public ActionResult Index(string search, int CreditRating, string Gender)
         {
             var client = db.Client.Include(c => c.Occupation);
             if (!string.IsNullOrEmpty(search))
@@ -23,6 +23,11 @@ namespace MVC5Course.Controllers
                 client =  client.Where(x => x.FirstName.Contains(search));
             }
             client = client.OrderByDescending(x => x.FirstName).Take(10);
+
+            var options = (from p in db.Client select p.CreditRating).Distinct().OrderBy(p => p).ToList();
+            ViewBag.CreditRating = new SelectList(options);
+
+            ViewBag.Gender = new SelectList(new string[] { "M", "F" });
             return View(client);
         }
 
