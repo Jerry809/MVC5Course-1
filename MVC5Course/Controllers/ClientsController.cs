@@ -13,7 +13,6 @@ namespace MVC5Course.Controllers
 {
     public class ClientsController : BaseController
     {
-
         // GET: Clients
         public ActionResult Index(string search, int CreditRating, string Gender)
         {
